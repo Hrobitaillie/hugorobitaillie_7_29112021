@@ -1,0 +1,96 @@
+.filters{
+    display: flex;
+    gap: 20px;
+    color: white;
+    &>*{
+        width: 170px;
+        height: 69px;
+        border-radius: 5px;
+
+        cursor: pointer;
+    }
+    .select{
+        &-labels{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            font-weight: bold;
+            font-size: 18px;
+            padding: 25px 15px 0;
+
+            position: relative;
+            .icon{
+                position: absolute;
+                top: 20px;
+                right: 18px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            input{
+                background-color: transparent;
+                border: none;
+                color: white;
+                width: 100%;
+                height: 20px;
+                font-size: 18px;
+                line-height: 22px;
+                &:focus{
+                    outline: none;
+                }
+                &::placeholder{
+                    color: white;
+                }
+            }
+            .autocom-box{
+                background-color: $color-one;
+                width: 800px;
+                list-style: none;
+                display: none;
+
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                font-weight: normal;
+                font-size: 18px;
+                position: absolute;
+                left: 0;
+                top: 61px;
+                li{
+                    padding: 15px;
+                    width: calc(800px / 3);
+                    &:hover{
+                        background-color: darken($color-one,10%);
+                    }
+                    &:last-child{
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+        &-ingredients {
+            background-color: $color-one;
+            &--items{
+                background-color:  $color-one;
+                height: 300px;
+                &>*{
+                    padding: 25px 15px;
+                    width: 170px;
+                    height: 69px;
+                    border-radius: 5px;
+            
+                    cursor: pointer;
+                }
+            }
+        }
+        &-appareils{
+            background-color: $color-two;
+        }
+        &-ustensiles{
+            background-color: $color-three;
+        }
+
+    }
+  }

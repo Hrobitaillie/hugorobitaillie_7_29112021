@@ -16,22 +16,57 @@
     </header>
     <body>
         <nav>
-            <div id="search-bar">
-                <input type="search" class="search-bar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
-                <img src="img/search_icon.svg" class="search-icon" alt="">
+            <div id="search-bar-container">
+                <div id="search-bar">
+                    <input type="search" class="search-bar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                    <img src="img/search_icon.svg" class="search-icon" alt="">
+                </div>
+
+                <div class="autocom-box">
+                </div>
             </div>
             <div class="filters-selected">
                 <div class="filters-ingredients">
                     <div class="filter-ingredients--item"><p>Tomates</p><img src="img/cross.svg" alt=""></div>
                 </div>
                 <div class="filters-appareils">
-                    <div class="filter-appareils--item"><p>Couizine</p><img src="img/cross.svg" alt=""></div>
+                    <div class="filter-appareils--item"><p>Four</p><img src="img/cross.svg" alt=""></div>
                 </div>
                 <div class="filters-ustensiles">
-                    <div class="filter-ustensiles--item"><p>Tes Mains</p><img src="img/cross.svg" alt=""></div>
+                    <div class="filter-ustensiles--item"><p>Fouet</p><img src="img/cross.svg" alt=""></div>
+                </div>
+            </div>
+            <div class="filters">
+                <div class="select-ingredients" id="select-ingredients">
+                    <div class="select-labels">
+                        <input type="text" placeholder="Ingédients">
+                        <div class="autocom-box">
+                        </div>
+                        <div class="icon">⌵</div>
+                    </div>
+                </div>
+                <div class="select-appareils" id="select-appareils">
+                    <div class="select-labels">
+                        <input type="text" placeholder="Appareils">
+                        <div class="autocom-box">
+                        </div>
+                        <div class="icon">⌵</div>
+                    </div>
+                </div>
+                <div class="select-ustensiles" id="select-ustensiles">
+                    <div class="select-labels">
+                        <input type="text" placeholder="Ustensiles">
+                        <div class="autocom-box">
+                        </div>
+                        <div class="icon">⌵</div>
+                    </div>
                 </div>
             </div>
         </nav>
+        <script type="module" src="./js/main.js"></script>
+        <main>
+            
+        </main>
     </body>
 </body>
 </html>

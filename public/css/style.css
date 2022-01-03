@@ -13,8 +13,15 @@ body {
   flex-direction: column;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 nav {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 nav .filters-selected {
   gap: 2rem;
@@ -30,6 +37,195 @@ nav .filter-ingredients--item {
 }
 nav .filter-ingredients--item p {
   margin: 0;
+}
+nav .filter-appareils--item {
+  display: flex;
+  background: #68D9A4;
+  border-radius: 5px;
+  padding: 10px 20px;
+  gap: 10px;
+  color: white;
+}
+nav .filter-appareils--item p {
+  margin: 0;
+}
+nav .filter-ustensiles--item {
+  display: flex;
+  background: #ED6454;
+  border-radius: 5px;
+  padding: 10px 20px;
+  gap: 10px;
+  color: white;
+}
+nav .filter-ustensiles--item p {
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+.filters > * {
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.filters .select-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 25px 15px 0;
+  position: relative;
+}
+.filters .select-labels .icon {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.filters .select-labels input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  height: 20px;
+  font-size: 18px;
+  line-height: 22px;
+}
+.filters .select-labels input:focus {
+  outline: none;
+}
+.filters .select-labels input::placeholder {
+  color: white;
+}
+.filters .select-labels .autocom-box {
+  background-color: #3282f7;
+  width: 800px;
+  list-style: none;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: normal;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 61px;
+}
+.filters .select-labels .autocom-box li {
+  padding: 15px;
+  width: calc(800px / 3);
+}
+.filters .select-labels .autocom-box li:hover {
+  background-color: #0966ed;
+}
+.filters .select-labels .autocom-box li:last-child {
+  margin-right: auto;
+}
+.filters .select-ingredients {
+  background-color: #3282f7;
+}
+.filters .select-ingredients--items {
+  background-color: #3282f7;
+  height: 300px;
+}
+.filters .select-ingredients--items > * {
+  padding: 25px 15px;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.filters .select-appareils {
+  background-color: #68D9A4;
+}
+.filters .select-ustensiles {
+  background-color: #ED6454;
+}
+
+main {
+  margin-top: 25px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.recette {
+  width: 380px;
+  height: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.recette x p {
+  margin: 0;
+}
+.recette figure {
+  height: 178px;
+  overflow: hidden;
+  background-color: #C7BEBE;
+  margin: 0;
+}
+.recette figcaption {
+  height: 186px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #E7E7E7;
+  padding: 20px;
+  gap: 20px;
+  font-size: 12px;
+}
+.recette figcaption .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.recette figcaption .row .recepeTitle {
+  font-size: 18px;
+}
+.recette figcaption .row .time {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  gap: 7px;
+  width: 120px;
+}
+.recette figcaption .row .time img {
+  width: 20px;
+}
+.recette figcaption .row:last-child > * {
+  width: 50%;
+  max-width: 50%;
+}
+.recette figcaption .row p {
+  margin: 0;
+}
+.recette figcaption ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.recette figcaption .recepeDescription {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 header {
