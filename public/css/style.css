@@ -61,18 +61,31 @@ nav .filter-ustensiles--item p {
   margin: 0;
 }
 
+.blue {
+  background-color: #3282f7;
+}
+
+.green {
+  background-color: #68D9A4;
+}
+
+.red {
+  background-color: #ED6454;
+}
+
 .filters {
   display: flex;
   gap: 20px;
   color: white;
 }
-.filters > * {
+.filters .filter-container {
   width: 170px;
   height: 69px;
   border-radius: 5px;
+  position: relative;
   cursor: pointer;
 }
-.filters .select-labels {
+.filters form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -82,14 +95,14 @@ nav .filter-ustensiles--item p {
   padding: 25px 15px 0;
   position: relative;
 }
-.filters .select-labels .icon {
+.filters form .icon {
   position: absolute;
   top: 20px;
   right: 18px;
   font-size: 18px;
   font-weight: bold;
 }
-.filters .select-labels input {
+.filters form input {
   background-color: transparent;
   border: none;
   color: white;
@@ -98,34 +111,42 @@ nav .filter-ustensiles--item p {
   font-size: 18px;
   line-height: 22px;
 }
-.filters .select-labels input:focus {
+.filters form input:focus {
   outline: none;
 }
-.filters .select-labels input::placeholder {
+.filters form input::placeholder {
   color: white;
 }
-.filters .select-labels .autocom-box {
-  background-color: #3282f7;
-  width: 800px;
-  list-style: none;
+.filters .autocom-box {
+  z-index: 100;
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  overflow-y: scroll;
   display: none;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
   font-weight: normal;
   font-size: 18px;
-  position: absolute;
   left: 0;
   top: 61px;
 }
-.filters .select-labels .autocom-box li {
-  padding: 15px;
+.filters .autocom-box.open {
+  display: block;
+}
+.filters .autocom-box ul {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filters .autocom-box li {
+  padding: 10px;
   width: calc(800px / 3);
 }
-.filters .select-labels .autocom-box li:hover {
+.filters .autocom-box li:hover {
   background-color: #0966ed;
 }
-.filters .select-labels .autocom-box li:last-child {
+.filters .autocom-box li:last-child {
   margin-right: auto;
 }
 .filters .select-ingredients {
@@ -169,12 +190,15 @@ main {
   margin: 0;
 }
 .recette figure {
-  height: 178px;
+  height: 364px;
   overflow: hidden;
   background-color: #C7BEBE;
   margin: 0;
 }
-.recette figcaption {
+.recette figure img {
+  height: calc(100% - 186px);
+}
+.recette figure figcaption {
   height: 186px;
   overflow: hidden;
   display: flex;
@@ -184,16 +208,16 @@ main {
   gap: 20px;
   font-size: 12px;
 }
-.recette figcaption .row {
+.recette figure figcaption .row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
-.recette figcaption .row .recepeTitle {
+.recette figure figcaption .row .recepeTitle {
   font-size: 18px;
 }
-.recette figcaption .row .time {
+.recette figure figcaption .row .time {
   text-align: right;
   display: flex;
   flex-direction: row;
@@ -204,22 +228,23 @@ main {
   gap: 7px;
   width: 120px;
 }
-.recette figcaption .row .time img {
+.recette figure figcaption .row .time img {
   width: 20px;
+  height: 20px;
 }
-.recette figcaption .row:last-child > * {
+.recette figure figcaption .row:last-child > * {
   width: 50%;
   max-width: 50%;
 }
-.recette figcaption .row p {
+.recette figure figcaption .row p {
   margin: 0;
 }
-.recette figcaption ul {
+.recette figure figcaption ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.recette figcaption .recepeDescription {
+.recette figure figcaption .recepeDescription {
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box !important;
