@@ -18,7 +18,7 @@
         <nav>
             <div id="search-bar-container">
                 <div id="search-bar">
-                    <input type="search" class="search-bar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" id="search-bar--input">
+                    <input type="search" class="search-bar" id="search-input" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" id="search-bar--input">
                     <img src="img/search_icon.svg" class="search-icon" alt="">
                 </div>
 
@@ -27,44 +27,50 @@
             </div>
             <div class="filters-selected">
                 <div class="filters-ingredients">
-                    <div class="filter-ingredients--item"><p>Tomates</p><img src="img/cross.svg" alt=""></div>
                 </div>
-                <div class="filters-appareils">
-                    <div class="filter-appareils--item"><p>Four</p><img src="img/cross.svg" alt=""></div>
+                <div class="filters-appliances">
                 </div>
-                <div class="filters-ustensiles">
-                    <div class="filter-ustensiles--item"><p>Fouet</p><img src="img/cross.svg" alt=""></div>
+                <div class="filters-ustensils">
                 </div>
             </div>
             <div class="filters">
-                <!-- <div class="select-ingredients" id="select-ingredients">
-                    <div class="select-labels">
-                        <input type="text" placeholder="Ingédients">
-                        <div class="autocom-box">
-                        </div>
-                        <div class="icon">⌵</div>
+                <div class="filter-container ingredients blue" data-name="ingredients">
+                    <form action="" data-name="ingredients">
+                        <input type="text" placeholder="Ingédients" class="dropdown-input" data-name="ingredients">
+                        <div class="icon" data-name="ingredients">⌵</div>
+                    </form>
+                    <div class="autocom-box blue" data-name="ingredients">
+                        <ul class="ul-container" data-name="ingredients">
+
+                        </ul>
                     </div>
                 </div>
-                <div class="select-appareils" id="select-appareils">
-                    <div class="select-labels">
-                        <input type="text" placeholder="Appareils">
-                        <div class="autocom-box">
-                        </div>
-                        <div class="icon">⌵</div>
+                <div class="filter-container ustensils red" data-name="ustensils">
+                    <form action="" data-name="ustensils">
+                        <input type="text" placeholder="Ustensiles" class="dropdown-input" data-name="ustensils">
+                        <div class="icon" data-name="ustensils">⌵</div>
+                    </form>
+                    <div class="autocom-box red" data-name="ustensils">
+                        <ul class="ul-container" data-name="ustensils">
+                            
+                        </ul>
                     </div>
                 </div>
-                <div class="select-ustensiles" id="select-ustensiles">
-                    <div class="select-labels">
-                        <input type="text" placeholder="Ustensiles">
-                        <div class="autocom-box">
-                        </div>
-                        <div class="icon">⌵</div>
+                <div class="filter-container appliances green" data-name="appliances">
+                    <form action="" data-name="appliances">
+                        <input type="text" placeholder="Appareils" class="dropdown-input" data-name="appliances">
+                        <div class="icon" data-name="appliances">⌵</div>
+                    </form>
+                    <div class="autocom-box green" data-name="appliances">
+                        <ul class="ul-container" data-name="appliances">
+                            
+                        </ul>
                     </div>
-                </div> -->
+                </div>
             </div>
         </nav>
         <!-- <script type="module" src="./js/main.js"></script>         -->
-        <script type="module" src="./newJs/main.js"></script>
+        <script type="module" src="./NewJs/main.js"></script>
 
         <main>
             

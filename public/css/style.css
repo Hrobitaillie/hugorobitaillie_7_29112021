@@ -27,18 +27,25 @@ nav .filters-selected {
   gap: 2rem;
   display: flex;
 }
+nav .filters-ingredients, nav .filters-appareils, nav .filters-ustensils {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 nav .filter-ingredients--item {
   display: flex;
   background: #3282f7;
   border-radius: 5px;
   padding: 10px 20px;
+  height: 41px;
   gap: 10px;
   color: white;
 }
 nav .filter-ingredients--item p {
   margin: 0;
 }
-nav .filter-appareils--item {
+nav .filter-appliances--item {
+  height: 41px;
   display: flex;
   background: #68D9A4;
   border-radius: 5px;
@@ -46,18 +53,19 @@ nav .filter-appareils--item {
   gap: 10px;
   color: white;
 }
-nav .filter-appareils--item p {
+nav .filter-appliances--item p {
   margin: 0;
 }
-nav .filter-ustensiles--item {
+nav .filter-ustensils--item {
   display: flex;
   background: #ED6454;
   border-radius: 5px;
   padding: 10px 20px;
+  height: 41px;
   gap: 10px;
   color: white;
 }
-nav .filter-ustensiles--item p {
+nav .filter-ustensils--item p {
   margin: 0;
 }
 

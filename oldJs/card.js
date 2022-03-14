@@ -1,7 +1,11 @@
 import {recipes} from './recipes.js';
 
 export class Card{
-    createCard(recipe, main){
+    constructor(container){
+        this.container = container;
+    }
+    createCard(recipe){
+
         const cardContainer = document.createElement("article");
         const cardFig = document.createElement("figure");
         const cardImg = document.createElement("img");
@@ -71,6 +75,17 @@ export class Card{
         cardCaption.append(firstRow, secondRow);
         cardFig.append(cardImg, cardCaption);
         cardContainer.append(cardFig);
-        main.append(cardContainer);
+        this.container.append(cardContainer);
+    }
+    removeAllCards(){
+        while (this.container.firstChild) {
+            let cardRestante = this.container.firstChild;
+            cardRestante.remove();
+        }
+    }
+    createNewCards(result){
+        result.forEach(recette => {
+            this.createCard(recette);
+        });
     }
 }
