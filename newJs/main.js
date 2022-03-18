@@ -1,4 +1,4 @@
-import { recipes } from "../oldJs/recipes.js";
+import { recipes } from "./recipes.js";
 import * as dropdown from "./dropdowns/base.js";
 
 const dropdowns =  document.querySelectorAll(".filter-container");

@@ -4,9 +4,6 @@ let IngredientsUniques = [];
 let AppliancesUniques = [];
 let UstensilsUniques = [];
 
-
-
-
 let keywordList = [];
 
 export function opendropdown(e){
