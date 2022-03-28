@@ -18,8 +18,9 @@ let keywordList = [];
 const suggBox = document.querySelector(".filters").querySelectorAll('.autocom-box');
 window.currentRecipes = recipes;
 
-
-suggBox.forEach((suggBox)=> dropdown.createDropdownsContent(suggBox));
+for (let i = 0; i < suggBox.length; i++) {
+    dropdown.createDropdownsContent(suggBox[i]);
+}
 
 
 onload();
@@ -68,17 +69,22 @@ function newSearch(){
     }else{
         displayNoRecipes();
     }
-    suggBox.forEach((suggBox)=> dropdown.createDropdownsContent(suggBox));
+
+    for (let i = 0; i < suggBox.length; i++) {
+        dropdown.createDropdownsContent(suggBox[i]);
+    }
 }
 
 function filterRecipes(){
     let filteredRecipes = [];
     if( dataSearchBar.length){
-        recipes.forEach(recipe => {
+        for (let i = 0; i < recipes.length; i++) {
+            let recipe = recipes[i];
             let recipeIngredients = [];
-            recipe.ingredients.forEach( ingredient => {
-                recipeIngredients.push(ingredient.ingredient.toLowerCase());
-            })
+            for (let j = 0; j < recipe.ingredients.length; j++) {
+                let ingredient = recipe.ingredients[j]
+                recipeIngredients.push(ingredient.ingredient.toLowerCase())
+            }
 
             if (recipeIngredients.includes(dataSearchBar.toLowerCase())
             || recipe.name.toLowerCase().includes(dataSearchBar.toLowerCase()) 
@@ -86,50 +92,63 @@ function filterRecipes(){
                 filteredRecipes.push(recipe);
                 window.currentRecipes = filteredRecipes;
             }
-        })
+        }
         if (keywordList.length) {
             let keywordListReduced = [];
             filteredRecipes = [];
-            keywordList.forEach(keyword => {keywordListReduced.push(keyword.keyword.toLowerCase())});
 
-            console.log(window.currentRecipes);
-            window.currentRecipes.forEach(recipe => {
+            for (let i = 0; i < keywordList.length; i++) {
+                keywordListReduced.push(keywordList[i].keyword.toLowerCase())
+            }
+
+            for (let i = 0; i < window.currentRecipes.length; i++) {
+                let recipe = window.currentRecipes[i];
+                
                 let recipeIngredients = [];
-                recipe.ingredients.forEach( ingredient => {
+                for (let j = 0; j < recipe.ingredients.length; j++) {
+                    let ingredient = recipe.ingredients[j];
                     recipeIngredients.push(ingredient.ingredient.toLowerCase());
-                })
+                }
+
                 let recipeUstensils = [];
-                recipe.ustensils.forEach(ustensils => {
+                for (let j = 0; j < recipe.ustensils.length; j++) {
+                    let ustensils = recipe.ustensils[j];
                     recipeUstensils.push(ustensils.toLowerCase());
-                })
+                }
 
                 let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
                 let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
                 let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
-                console.log(testAppliance);
+
                 if (testIngredient || testUstensils || testAppliance){
                     filteredRecipes.push(recipe);
                 }
-            })
+            }
         }
     }else if(!dataSearchBar.length && !keywordList.length){
         filteredRecipes = recipes;
     }else if (keywordList.length == 0) {
-        console.log("true");
         filteredRecipes = recipes;
     }else{
         let keywordListReduced = [];
-        keywordList.forEach(keyword => {keywordListReduced.push(keyword.keyword.toLowerCase())});
+        for (let i = 0; i < keywordList.length; i++) {
+            keywordListReduced.push(keywordList[i].keyword.toLowerCase())
+        }
+        for (let i = 0; i < recipes.length; i++) {
+            let recipe = recipes[i];
 
-        recipes.forEach(recipe => {
+
             let recipeIngredients = [];
-            recipe.ingredients.forEach( ingredient => {
+            for (let j = 0; j < recipe.ingredients.length; j++) {
+                let ingredient = recipe.ingredients[j];
                 recipeIngredients.push(ingredient.ingredient.toLowerCase());
-            })
+            }
+
             let recipeUstensils = [];
-            recipe.ustensils.forEach(ustensils => {
+            for (let j = 0; j < recipe.ustensils.length; j++) {
+                let ustensils = recipe.ustensils[j];
                 recipeUstensils.push(ustensils.toLowerCase());
-            })
+            }
 
             let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
             let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
@@ -137,7 +156,7 @@ function filterRecipes(){
             if (testIngredient || testUstensils || testAppliance){
                 filteredRecipes.push(recipe);
             }
-        })
+        }
     }
     window.currentRecipes = filteredRecipes;
     return filteredRecipes;
@@ -147,7 +166,9 @@ function displayRecipes(filteredRecipes){
     main.innerHTML='';
     let recipeCard;
     
-    filteredRecipes.forEach(recipe =>{
+    for (let i = 0; i < filteredRecipes.length; i++) {
+        let recipe = filteredRecipes[i];
+
         let recipeIngredients = [];
 
         const ingredients = recipe.ingredients;
@@ -156,7 +177,9 @@ function displayRecipes(filteredRecipes){
         let ingredientQty;
         let ingredientUnit;
 
-        ingredients.forEach(ingredient => {
+        for (let j = 0; j < ingredients.length; j++) {
+            let ingredient = ingredients[j];
+
             ingredientName = ingredient.ingredient;
             ingredientQty = ingredient.quantity;
             ingredientUnit = ingredient.unit;
@@ -175,7 +198,7 @@ function displayRecipes(filteredRecipes){
                 ingredientLine = `<li><strong>${ingredientName}${ingredientQty}${ingredientUnit}</strong></li>`
             }
             recipeIngredients += (ingredientLine);
-        });
+        }
         recipeCard = `
         <article class="recette">
                 <figure>
@@ -197,7 +220,7 @@ function displayRecipes(filteredRecipes){
             </article>
         `
         main.innerHTML += recipeCard;
-    })
+    }
 }
 
 export function triggerNewSearch(keywordListFresh){
