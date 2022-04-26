@@ -151,8 +151,14 @@ nav .filter-ustensils--item p {
   padding: 10px;
   width: calc(800px / 3);
 }
-.filters .autocom-box li:hover {
+.filters .autocom-box li[data-name=ingredients]:hover {
   background-color: #0966ed;
+}
+.filters .autocom-box li[data-name=ustensils]:hover {
+  background-color: #e83a26;
+}
+.filters .autocom-box li[data-name=appliance]:hover {
+  background-color: #3fcf8b;
 }
 .filters .autocom-box li:last-child {
   margin-right: auto;

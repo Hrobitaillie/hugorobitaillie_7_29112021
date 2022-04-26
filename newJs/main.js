@@ -61,6 +61,7 @@ appliancesDropdown.addEventListener("keyup",(e)=>{
 
 
 function newSearch(){
+    window.currentRecipes = recipes;
     const filteredRecipes = filterRecipes(recipes,dataSearchBar,keywordList);
 
     if (filteredRecipes.length!==0){
@@ -72,6 +73,7 @@ function newSearch(){
 }
 
 function filterRecipes(){
+    window
     let filteredRecipes = [];
     if( dataSearchBar.length){
         recipes.forEach(recipe => {
@@ -120,26 +122,54 @@ function filterRecipes(){
     }else{
         let keywordListReduced = [];
         keywordList.forEach(keyword => {keywordListReduced.push(keyword.keyword.toLowerCase())});
+        keywordListReduced.forEach(keyword =>{
+            console.log(keyword);
+            filteredRecipes = [];
+            window.currentRecipes.forEach(recipe => {
+                let recipeIngredients = [];
+                recipe.ingredients.forEach( ingredient => {
+                    recipeIngredients.push(ingredient.ingredient.toLowerCase());
+                })
+                let recipeUstensils = [];
+                recipe.ustensils.forEach(ustensils => {
+                    recipeUstensils.push(ustensils.toLowerCase());
+                })
+    
+                let testIngredient = recipeIngredients.includes(keyword.toLowerCase());
+                let testUstensils = recipeUstensils.includes(keyword.toLowerCase());
+                let testAppliance = recipe.appliance.includes(keyword.toLowerCase());
 
-        recipes.forEach(recipe => {
-            let recipeIngredients = [];
-            recipe.ingredients.forEach( ingredient => {
-                recipeIngredients.push(ingredient.ingredient.toLowerCase());
+                console.log(testIngredient);
+                // let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
+                // let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
+                // let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
+                if (testIngredient || testUstensils || testAppliance){
+                    filteredRecipes.push(recipe);
+                    console.log(filteredRecipes);
+                }
+                
             })
-            let recipeUstensils = [];
-            recipe.ustensils.forEach(ustensils => {
-                recipeUstensils.push(ustensils.toLowerCase());
-            })
-
-            let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
-            let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
-            let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
-            if (testIngredient || testUstensils || testAppliance){
-                filteredRecipes.push(recipe);
-            }
+            window.currentRecipes = filteredRecipes
         })
+        // recipes.forEach(recipe => {
+        //     let recipeIngredients = [];
+        //     recipe.ingredients.forEach( ingredient => {
+        //         recipeIngredients.push(ingredient.ingredient.toLowerCase());
+        //     })
+        //     let recipeUstensils = [];
+        //     recipe.ustensils.forEach(ustensils => {
+        //         recipeUstensils.push(ustensils.toLowerCase());
+        //     })
+
+        //     let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
+        //     let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
+        //     let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
+        //     if (testIngredient || testUstensils || testAppliance){
+        //         filteredRecipes.push(recipe);
+        //     }
+        // })
     }
-    window.currentRecipes = filteredRecipes;
+    // window.currentRecipes = filteredRecipes;
     return filteredRecipes;
 }
 

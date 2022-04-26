@@ -76,9 +76,21 @@
         li{
             padding: 10px;
             width: calc(800px / 3);
+           &[data-name="ingredients"]{
             &:hover{
                 background-color: darken($color-one,10%);
             }
+           }
+           &[data-name="ustensils"]{
+            &:hover{
+                background-color: darken($color-three,10%);
+            }
+           }
+           &[data-name="appliance"]{
+            &:hover{
+                background-color: darken($color-two,10%);
+            }
+           }
             &:last-child{
                 margin-right: auto;
             }

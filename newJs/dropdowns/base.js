@@ -118,6 +118,7 @@ function deleteKeyword(e){
     }
 
     keywordDOM.remove();
+    
     triggerNewSearch(keywordList);;
 }
 
