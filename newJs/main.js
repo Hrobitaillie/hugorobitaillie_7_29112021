@@ -91,10 +91,10 @@ function filterRecipes(){
         })
         if (keywordList.length) {
             let keywordListReduced = [];
+             keywordList.forEach(keyword => {keywordListReduced.push(keyword.keyword.toLowerCase())});
+            keywordListReduced.forEach(keyword =>{
+            console.log(keyword);
             filteredRecipes = [];
-            keywordList.forEach(keyword => {keywordListReduced.push(keyword.keyword.toLowerCase())});
-
-            console.log(window.currentRecipes);
             window.currentRecipes.forEach(recipe => {
                 let recipeIngredients = [];
                 recipe.ingredients.forEach( ingredient => {
@@ -104,15 +104,23 @@ function filterRecipes(){
                 recipe.ustensils.forEach(ustensils => {
                     recipeUstensils.push(ustensils.toLowerCase());
                 })
+    
+                let testIngredient = recipeIngredients.includes(keyword.toLowerCase());
+                let testUstensils = recipeUstensils.includes(keyword.toLowerCase());
+                let testAppliance = recipe.appliance.includes(keyword.toLowerCase());
 
-                let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
-                let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
-                let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
-                console.log(testAppliance);
+                console.log(testIngredient);
+                // let testIngredient = recipeIngredients.some(r=> keywordListReduced.indexOf(r) >= 0);
+                // let testUstensils = recipeUstensils.some(r=> keywordListReduced.indexOf(r) >= 0);
+                // let testAppliance = keywordListReduced.includes(recipe.appliance.toLowerCase());
                 if (testIngredient || testUstensils || testAppliance){
                     filteredRecipes.push(recipe);
+                    console.log(filteredRecipes);
                 }
+                
             })
+            window.currentRecipes = filteredRecipes
+        })
         }
     }else if(!dataSearchBar.length && !keywordList.length){
         filteredRecipes = recipes;
